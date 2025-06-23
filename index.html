@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Website</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+    <div>
+        <div class="strategy" id="phase">Phase 1: Understanding</div>
+        <div class="strategy" id="strategy">Strategy<br>Understand the difference between direct discrimination and indirect discrimination and the related concepts of 'proxy variable' and 'disparate impact'.</div>
+        <div class="question" id="question">Question:<br>For your project to design the new CARX insurance, you just formed the project team and need to organize the kickoff meeting. You get a call from a consultant that offers a training on indirect discrimination and proxy variables. What will you do for the kickoff meeting?<br><span style="background-color: #ffff99;">3. You book the training on indirect discrimination and proxy variables for yourself and your team</span></div>
+        <div class="options" id="options">
+            <ul class="checkbox-list">
+                <li><input type="checkbox" id="option1"> 1. You book no training. Discrimination and proxies is not interesting since it is a legal topic</li>
+                <li><input type="checkbox" id="option2"> 2. You decide to go to the training on indirect discrimination and proxy variables yourself</li>
+                <li><input type="checkbox" id="option3"> 3. You book the training on indirect discrimination and proxy variables for yourself and your team</li>
+            </ul>
+        </div>
+        <button onclick="nextQuestion()">Next Question</button>
+        <button onclick="prevQuestion()">Previous Question</button>
+        <button onclick="finishQuestions()">Finish Questions</button>
+    </div>
+</div>
+
+<table id="resultsTable" border="1" style="margin-top: 20px; display: none;">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Profitability</td>
+      <td id="profitabilityCell"></td>
+    </tr>
+    <tr>
+      <td>Fairness</td>
+      <td id="fairnessCell"></td>
+    </tr>
+    <tr>
+      <td>Compliance</td>
+      <td id="complianceCell"></td>
+    </tr>
+  </tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>

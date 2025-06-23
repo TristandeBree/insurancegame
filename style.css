@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+}
+.strategy, .question, .options {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.strategy {
+    background-color: #f9f9f9;
+}
+.question {
+    background-color: #e6ffe6;
+}
+.options {
+    background-color: #fff;
+}
+.option {
+    margin: 5px 0;
+}
+.hide-columns {
+    background-color: #666;
+    color: #fff;
+    padding: 10px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.checkbox-list {
+    list-style-type: none;
+    padding: 0;
+}
+.checkbox-list li {
+    margin: 5px 0;
+}
+.checkbox-list input[type="checkbox"] {
+    margin-right: 10px;
+}
