@@ -5,7 +5,7 @@ body {
 .container {
     display: flex;
     justify-content: space-between;
-    max-width: 800px;
+    max-width: 1200px;
 }
 .strategy, .question, .options {
     border: 1px solid #ccc;
