@@ -97,8 +97,22 @@ function nextQuestion() {
 }
 
 function prevQuestion() {
-    currentIndex = (currentIndex - 1) % questions.length;
+    currentIndex = (currentIndex - 1 + questions.length) % questions.length;
+    console.log(currentIndex)
     updateContent(currentIndex);
+}
+
+function toggleStrategy() {
+    const strategyDiv = document.getElementById("strategy");
+    const button = document.getElementById("toggleButton");
+
+    if (strategyDiv.style.display === "none" || strategyDiv.style.display === "") {
+      strategyDiv.style.display = "block";
+      button.textContent = "Hide Strategy";
+    } else {
+      strategyDiv.style.display = "none";
+      button.textContent = "Show Strategy";
+    }
 }
 
 function finishQuestions() {

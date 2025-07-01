@@ -10,7 +10,7 @@
 <div class="container" id="base">
     <div>
         <div class="strategy" id="phase">Phase 1: Understanding</div>
-        <div class="strategy" id="strategy">Strategy<br>Understand the difference between direct discrimination and indirect discrimination and the related concepts of 'proxy variable' and 'disparate impact'.</div>
+        <div class="strategy" id="strategy" style="display: none;">Strategy<br>Understand the difference between direct discrimination and indirect discrimination and the related concepts of 'proxy variable' and 'disparate impact'.</div>
         <div class="question" id="question">Question:<br>For your project to design the new CARX insurance, you just formed the project team and need to organize the kickoff meeting. You get a call from a consultant that offers a training on indirect discrimination and proxy variables. What will you do for the kickoff meeting?<br><span style="background-color: #ffff99;">3. You book the training on indirect discrimination and proxy variables for yourself and your team</span></div>
         <div class="options" id="options">
             <ul class="checkbox-list">
@@ -22,6 +22,7 @@
         <button onclick="nextQuestion()">Next Question</button>
         <button onclick="prevQuestion()">Previous Question</button>
         <button onclick="finishQuestions()">Finish Questions</button>
+        <button id="toggleButton" onclick="toggleStrategy()">Show Strategy</button>
     </div>
 </div>
 
