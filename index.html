@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="container">
+<div class="container" id="base">
     <div>
         <div class="strategy" id="phase">Phase 1: Understanding</div>
         <div class="strategy" id="strategy">Strategy<br>Understand the difference between direct discrimination and indirect discrimination and the related concepts of 'proxy variable' and 'disparate impact'.</div>
@@ -46,6 +46,17 @@
       <td id="complianceCell"></td>
     </tr>
   </tbody>
+</table>
+
+<table id="feedbackTable" border="1" style="margin-top: 20px; display: none;">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+      <th>Feedback</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
 </table>
 
 <script src="script.js"></script>

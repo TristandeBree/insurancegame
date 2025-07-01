@@ -10,27 +10,60 @@ const questions = [
         ]
     },
     {
-        phase: "Phase 2: Planning",
-        strategy: "Develop a project timeline and resource allocation plan.",
-        question: "You need to set a timeline for the CARX insurance project. How will you proceed?",
+        phase: "Phase 1: Understanding",
+        strategy: "Understand that there is not a single threshhold value for what is an acceptable amount of bias, or acceptable amount of disparate impact.",
+        question: "You are updating the project plan and want to add additional metrics that will me measured during and after the project. You know that fairness is important for the project, and anything that is important should be measured. How should fairness be measured?",
         options: [
-            "1. You set a rough timeline without team input",
-            "2. You create a detailed timeline with input from your team",
-            "3. You delegate timeline creation to a junior team member"
+            "1. You ask your lead analyst to pick the best available fairness metric from the literature",
+            "2. You ask your lead analyst to not only pick a metric but also set a maximum value of unfairness",
+            "3. You ask the lead analyst to design a detailed fairness scorecard with room for multiple metrics"
         ]
-    }
+    },
+    {
+        phase: "Phase 1: Understanding",
+        strategy: "Understand the importance of information asymmetry, especially how unequal knowledge about customers’ risk profiles can lead to adverse selection.",
+        question: "Your marketing team suggested that simplied, one-size-fits all pricing would make the marketing and sales process for the new insurance a lot easier.",
+        options: [
+            "1. You agree and go for 49 euros per month for all cars. ",
+            "2. You mostly agree but with two levels: 39 euros per month for small, inexpensive cars and 59 euros per month for other cars. ",
+            "3. You respectfully disagree and deside to stick with traditional, individual pricing"
+        ]
+    },
 ];
 
 let answer_sheet = [
     [
         {profitability: 1, fairness: 0, compliance: 0},
-        {profitability: 1, fairness: 2, compliance: 1},
-        {profitability: -1, fairness: 4, compliance: 2}
+        {profitability: 2, fairness: 2, compliance: 1},
+        {profitability: 1, fairness: 4, compliance: 2}
     ],
     [
-        {profitability: 0, fairness: 0, compliance: 0},
-        {profitability: 0, fairness: -1, compliance: 0},
-        {profitability: 0, fairness: 3, compliance: 2}
+        {profitability: 1, fairness: 0, compliance: 0},
+        {profitability: 1, fairness: -1, compliance: 0},
+        {profitability: 1, fairness: 2, compliance: 2}
+    ],
+    [
+        {profitability: -10, fairness: 1, compliance: 1},
+        {profitability: -5, fairness: 1, compliance: 1},
+        {profitability: 4, fairness: 1, compliance: 1}
+    ]
+]
+
+let feedback_sheet = [
+    [
+        "Risky choice to skip training! You might run into fairness and compliance issues later on!",
+        "The training is actually interesting and helps you to avoid indirect discrimination against gender via car types",
+        "Your team learns a lot from the training, but it did cost a lot of time from the team"
+    ],
+    [
+        "There is no single good fairness metric that covers all risks. Focusing on a signle metrix leads to risk to being unfair for many groups",
+        "There is no single good fairness metric that covers all risks and there is also not a single clear threshold.",
+        "The detailed fairness scorecard is very useful to detect biases during the project"
+    ],
+    [
+        "You get many new customers, but all of these are high risk customers who were charged high premiums at other insurers. Their expensive cars need expensive repairs.",
+        "You get many new customers, but most of these are high risk customers who were charged high premiums at other insurers. Their expensive cars need expensive repairs.",
+        "You do not get many more customers, but you also do not have higher costs"
     ]
 ]
 
@@ -70,6 +103,8 @@ function prevQuestion() {
 
 function finishQuestions() {
     if (Object.keys(answers).length == answer_sheet.length) {
+
+        // update values for result table
         let profitability = 0;
         let fairness = 0;
         let compliance = 0;
@@ -85,8 +120,33 @@ function finishQuestions() {
         document.getElementById("fairnessCell").textContent = fairness;
         document.getElementById("complianceCell").textContent = compliance;
 
-        // Show the results table
+        // update feedbacktable values
+        const table = document.getElementById("feedbackTable");
+        const tbody = table.querySelector("tbody");
+
+        Object.entries(answers).forEach(([questionIndex, answerIndex]) => {
+            const row = document.createElement("tr");
+
+            const questionCell = document.createElement("td");
+            questionCell.textContent = questions[questionIndex].question;
+
+            const answerCell = document.createElement("td");
+            answerCell.textContent = questions[questionIndex].options[answerIndex];
+
+            const feedbackCell = document.createElement("td");
+            feedbackCell.textContent = feedback_sheet[questionIndex][answerIndex];
+
+            row.appendChild(questionCell);
+            row.appendChild(answerCell);
+            row.appendChild(feedbackCell);
+
+            tbody.appendChild(row);
+        });
+
+        // Show the tables and hide the original questions
         document.getElementById("resultsTable").style.display = "table";
+        document.getElementById("feedbackTable").style.display = "table";
+        document.getElementById("base").style.display = "none";
     }
     else {
         alert("Not every answer has been filled in.");
