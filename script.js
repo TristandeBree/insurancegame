@@ -336,8 +336,6 @@ function finishQuestions() {
         document.getElementById("base").style.display = "none";
     }
     else {
-        console.log(Object.keys(answers).length)
-        console.log(answer_sheet.length)
         alert("Not every answer has been filled in.");
     }
 }
