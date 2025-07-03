@@ -52,3 +52,20 @@ th {
 .checkbox-list input[type="checkbox"] {
     margin-right: 10px;
 }
+.button {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:mediumturquoise;
+    padding: 20px;
+    color: white;
+}
+.intro {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    color: black;
+}
