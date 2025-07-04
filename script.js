@@ -332,7 +332,8 @@ function finishQuestions() {
         // Show the tables and hide the original questions
         document.getElementById("resultsTable").style.display = "table";
         document.getElementById("feedbackTable").style.display = "table";
-        document.getElementById("scoreResults").style.display = "block"
+        document.getElementById("scoreResults").style.display = "block";
+        document.getElementById("playagain").style.display = "block";
         document.getElementById("base").style.display = "none";
     }
     else {
